@@ -2,33 +2,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Admin Dashboard | Stackly</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css?v=3">
     
     <style>
         * { box-sizing: border-box; }
-        :root {
-            --bg-dark: #050816;
-            --bg-panel: rgba(20, 29, 46, 0.6);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --text-main: #fff;
-            --text-muted: #a0aabf;
-            --primary: #00E5FF;
-            --secondary: #6C63FF;
-            --accent: #14F195;
-            --danger: #ff4757;
-            --warning: #ffa502;
-            --sidebar-width: 260px;
-            --header-height: 80px;
-        }
+        :root { /* Removed inline root, using style.css */ }
 
         body.dashboard-body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-color);
             font-family: 'Outfit', sans-serif;
-            color: var(--text-main);
+            color: #fff;
             display: flex;
             height: 100vh;
             overflow-x: hidden; /* Main body shouldn't scroll, content area will */
@@ -697,7 +684,7 @@
     }
     </style>
 
-    <link rel="stylesheet" href="updates.css">
+    <link rel="stylesheet" href="updates.css?v=2">
 </head>
 <body class="dashboard-body">
 
@@ -721,10 +708,6 @@
             <a href="dashboard.html" class="nav-item">
                 <i class="fa-solid fa-link"></i>
                 Overview
-            </a>
-            <a href="analyst-dashboard.html" class="nav-item">
-                <i class="fa-solid fa-link"></i>
-                Analyst View
             </a>
             <a href="threat-intel.html" class="nav-item">
                 <i class="fa-solid fa-link"></i>
@@ -920,6 +903,7 @@
     </script>
 </body>
 </html>
+
 
 
 

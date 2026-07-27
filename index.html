@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stackly | Ultimate Security Platform</title>
     <meta name="description" content="Next-generation security platform for your business and personal devices. Protect against viruses, malware, and cyber threats in real-time.">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=3">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -107,7 +107,7 @@
     }
     </style>
 
-    <link rel="stylesheet" href="updates.css">
+    <link rel="stylesheet" href="updates.css?v=2">
 </head>
 <body>
     <!-- Unique Cyber Preloader -->
@@ -159,7 +159,7 @@
             <div class="nav-drawer" id="nav-drawer">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     
-                    <button onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 5px; display: flex; align-items: center; justify-content: center;">
+                    <button onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" style="background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer; padding: 5px; display: flex; align-items: center; justify-content: center;">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -177,7 +177,7 @@
     <header class="hero">
         <div class="hero-content fade-in-up">
             <div class="badge">Next-Gen Protection</div>
-            <h1>Smart Security Solutions <br><span class="text-gradient">Powered by AI</span></h1>
+            <h1>Smart Security Solutions <br> <span class="text-gradient">Powered by AI</span></h1>
             <p>Defend your digital life with an all-in-one platform providing real-time threat intelligence, continuous monitoring, and unparalleled performance.</p>
             <div class="hero-actions">
                 <a href="404.html" class="btn btn-primary btn-large">Get Started <i class="fa-solid fa-arrow-right icon-move"></i></a>
@@ -406,7 +406,6 @@
                     <div class="glow-border"></div>
                     <div class="card-content">
                         <div class="card-header">
-                            <span class="step-num">01</span>
                             <i class="fa-solid fa-magnifying-glass-chart icon"></i>
                         </div>
                         <h4>System Assessment</h4>
@@ -428,7 +427,6 @@
                     <div class="glow-border"></div>
                     <div class="card-content">
                         <div class="card-header">
-                            <span class="step-num">02</span>
                             <i class="fa-solid fa-biohazard icon"></i>
                         </div>
                         <h4>Threat Neutralization</h4>
@@ -453,7 +451,6 @@
                     <div class="card-content">
                         <div class="card-header">
                             <i class="fa-solid fa-shield-cat icon"></i>
-                            <span class="step-num">03</span>
                         </div>
                         <h4>Behavioral Blocking</h4>
                         <p>Monitor application behavior in real-time to block zero-day ransomware attacks.</p>
@@ -474,7 +471,6 @@
                     <div class="card-content">
                         <div class="card-header">
                             <i class="fa-solid fa-satellite-dish icon"></i>
-                            <span class="step-num">04</span>
                         </div>
                         <h4>Continuous Monitoring</h4>
                         <p>Protect your infrastructure 24/7 without slowing down your computer's performance.</p>
@@ -660,7 +656,7 @@
         </div>
         <div class="blog-grid mt-3">
             <div class="blog-card stagger-up">
-                <img src="images/blog_threats.webp" alt="Cyber Threats" width="100%" height="auto" loading="lazy">
+                <div class="scan-line-container"><img src="images/blog_threats.webp" alt="Cyber Threats" width="100%" height="auto" loading="lazy"></div>
                 <div class="blog-content">
                     <span class="date">Jul 20, 2026</span>
                     <h3>The Evolution of Global Cyber Threats in 2026</h3>
@@ -668,7 +664,7 @@
                 </div>
             </div>
             <div class="blog-card stagger-up">
-                <img src="images/blog_phishing.webp" alt="Phishing" width="100%" height="auto" loading="lazy">
+                <div class="scan-line-container"><img src="images/blog_phishing.webp" alt="Phishing" width="100%" height="auto" loading="lazy"></div>
                 <div class="blog-content">
                     <span class="date">Jul 15, 2026</span>
                     <h3>How to Identify and Defend Against Modern Phishing Attacks</h3>
@@ -676,7 +672,7 @@
                 </div>
             </div>
             <div class="blog-card stagger-up">
-                <img src="images/blog_privacy.webp" alt="Privacy" width="100%" height="auto" loading="lazy">
+                <div class="scan-line-container"><img src="images/blog_privacy.webp" alt="Privacy" width="100%" height="auto" loading="lazy"></div>
                 <div class="blog-content">
                     <span class="date">Jul 10, 2026</span>
                     <h3>Data Privacy: Why Encryption Matters More Than Ever</h3>
@@ -712,7 +708,7 @@
                             <span class="badge"><i class="fa-solid fa-headset"></i> 24/7 Support</span>
                             <span class="badge"><i class="fa-solid fa-shield-check"></i> Enterprise Grade</span>
                         </div>
-                        <a href="404.html" class="btn btn-primary mt-3" style="width: 100%; text-align: center; border-radius: 50px;">Contact Our Experts</a>
+                        <a href="contact.html" class="btn btn-primary mt-3" style="width: 100%; text-align: center; border-radius: 50px;">Contact Our Experts</a>
                     </div>
                 </div>
             </div>
@@ -779,7 +775,7 @@
         
         <!-- Bottom CTA -->
         <div class="faq-bottom-cta fade-in-up mt-5 text-center" style="position: relative; z-index: 2;">
-            <a href="404.html" class="btn btn-primary" style="margin-right: 15px; border-radius: 50px;">Talk to an Expert</a>
+            <a href="contact.html" class="btn btn-primary" style="margin-right: 15px; border-radius: 50px;">Talk to an Expert</a>
             <a href="404.html" class="btn btn-outline" style="border-radius: 50px;">Request a Demo</a>
         </div>
     </section>
@@ -800,7 +796,7 @@
     <footer class="footer">
         <div class="footer-newsletter fade-in-up">
             <h3>Stay Ahead of Cyber Threats</h3>
-            <form class="newsletter-form" action="404.html">
+            <form class="newsletter-form" action="#">
                 <input type="email" placeholder="Email Address" required="">
                 <button type="submit" class="btn btn-primary">Subscribe Now</button>
             </form>
@@ -840,7 +836,7 @@
                 <ul class="footer-contact">
                     <li>
                         <span class="contact-icon">📍</span>
-                        245 Innovation Avenue, New York, NY 10001
+                        mmr complex.chinna thirupathi,salem-636008
                     </li>
                     <li>
                         <span class="contact-icon">✉</span>
@@ -850,7 +846,7 @@
                         <div class="call-icon">📞</div>
                         <div>
                             <span style="font-size: 0.8rem; color: var(--text-muted);">Call Now</span><br>
-                            <strong>+1 (800) 555-0199</strong>
+                            <strong>9087654321</strong>
                         </div>
                     </li>
                 </ul>
@@ -897,6 +893,14 @@
         })();
     </script>
 </body></html>
+
+
+
+
+
+
+
+
 
 
 

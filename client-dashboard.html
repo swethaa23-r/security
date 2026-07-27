@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        if (localStorage.getItem('userRole') !== 'client') {
+            window.location.href = 'login.html';
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stackly Client Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="updates.css">
+    <link rel="stylesheet" href="updates.css?v=2">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
-        :root {
-            --bg-dark: #050816; --bg-panel: rgba(10,15,36,0.7); --primary: #00E5FF;
-            --secondary: #6C63FF; --accent: #14F195; --danger: #ff4757;
-            --warning: #ffa502; --success: #2ed573; --text-main: #ffffff;
-            --text-muted: #a0aabf; --border-color: rgba(255,255,255,0.08);
-        }
-        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; display: flex; height: 100vh; }
+        :root { /* Removed inline root, using style.css */ }
+        body { background-color: var(--bg-color); color: #fff; overflow-x: hidden; display: flex; height: 100vh; }
 
         @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -100,7 +100,7 @@
         /* ---- SCORE ---- */
         .score-container { display: flex; align-items: center; justify-content: space-around; padding: 10px 0; }
         .score-ring { width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(var(--accent) 0% 94%, rgba(255,255,255,0.06) 94% 100%); display: flex; align-items: center; justify-content: center; }
-        .score-inner { width: 108px; height: 108px; border-radius: 50%; background: var(--bg-dark); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .score-inner { width: 108px; height: 108px; border-radius: 50%; background: var(--bg-color); display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .score-number { font-size: 2.1rem; font-weight: 700; font-family: 'Fira Code', monospace; line-height: 1; }
         .score-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; }
         .score-details { flex: 1; padding-left: 28px; }
@@ -251,7 +251,7 @@
         <button class="nav-item" onclick="switchSection('settings', this)">
             <i class="fa-solid fa-gear"></i> Settings
         </button>
-        <a href="login.html" class="nav-item" style="color: var(--danger); margin-top: 5px;">
+        <a href="login.html" onclick="localStorage.removeItem('userRole');" class="nav-item" style="color: var(--danger); margin-top: 5px;">
             <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
     </div>
@@ -656,6 +656,7 @@
 </script>
 </body>
 </html>
+
 
 
 

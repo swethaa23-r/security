@@ -309,7 +309,7 @@ html, body {
 .nav-drawer button {
     cursor: pointer;
     font-size: 1.5rem !important;
-    color: #fff !important;
+    color: var(--text-main) !important;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 .nav-drawer button:hover {
@@ -327,7 +327,7 @@ html, body {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        color: #fff !important;
+        color: var(--text-main) !important;
         font-size: 1.5rem !important;
         padding: 5px !important;
     }
@@ -351,7 +351,7 @@ html, body {
         max-width: 100% !important;
         height: 100vh !important;
         height: 100dvh !important;
-        background: #0b1120 !important;
+        background: var(--bg-color) !important;
         z-index: 9999 !important;
         padding: 30px 24px !important;
         display: flex !important;
@@ -464,8 +464,1145 @@ html, body {
 /* Dashboard Toggle Switch */
 .toggle { position: relative; width: 44px; height: 24px; display: inline-block; }
 .toggle input { opacity: 0; width: 0; height: 0; }
-.toggle-slider { position: absolute; inset: 0; background: rgba(255,255,255,0.1); border-radius: 24px; cursor: pointer; transition: 0.3s; }
+.toggle-slider { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.1); border-radius: 24px; cursor: pointer; transition: 0.3s; }
 .toggle-slider:before { content: ''; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: 0.3s; }
 .toggle input:checked + .toggle-slider { background: var(--primary); }
 .toggle input:checked + .toggle-slider:before { transform: translateX(20px); }
 
+/* Premium Team Section Overrides */
+.team-card {
+    transition: none !important; 
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+}
+.team-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Background FX */
+.team.section {
+    position: relative;
+    overflow: hidden;
+}
+.team-bg-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.3;
+    background-image: 
+        linear-gradient(rgba(0, 255, 204, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 204, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+.team-particles {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ffcc;
+    opacity: 0.6;
+}
+.network-line {
+    position: absolute;
+    background: rgba(0, 255, 204, 0.2);
+    box-shadow: 0 0 5px rgba(0, 255, 204, 0.4);
+}
+
+/* Spotlight */
+.team-card .spotlight {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 255, 204, 0.15) 0%, transparent 60%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    mix-blend-mode: multiply;
+    transition: opacity 0.3s ease;
+}
+.team-card:hover .spotlight {
+    opacity: 1;
+}
+
+/* Inner elements styling */
+.team-card img {
+    will-change: transform, filter;
+    transition: transform 0.5s ease, filter 0.5s ease !important;
+}
+
+.team-card .team-info {
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card .name-char {
+    display: inline-block;
+    opacity: 1; /* Default state when JS isn't hovering */
+}
+
+.team-card .designation {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 5px;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.team-card .underline {
+    width: 0%;
+    height: 2px;
+    background: var(--primary, #00ffcc);
+    margin-top: 10px;
+    box-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
+}
+
+.team-card .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.team-card .social-icons svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: fill 0.3s ease;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.team-card .social-icons svg:hover {
+    fill: var(--primary, #00ffcc);
+}
+
+/* Dimming other cards */
+.team-grid.is-hovering .team-card:not(:hover) {
+    filter: blur(2px) brightness(0.6);
+    opacity: 0.8;
+}
+.team-grid {
+    transition: filter 0.3s ease;
+}
+.team-card {
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+
+
+/* =========================================
+   SP PREMIUM THEME OVERRIDES
+   ========================================= */
+
+/* CARD DESIGN */
+.card, .stat-box, .team-card, .service-card, .blog-card, .pricing-card, .workflow-card, .dashboard-card, .glass-stat-card, .timeline-card {
+    background: var(--card-bg) !important;
+    border-radius: 18px !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(0, 0, 0, 0.05) !important;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition) !important;
+    transform-style: preserve-3d;
+}
+
+.card:hover, .stat-box:hover, .team-card:hover, .service-card:hover, .blog-card:hover, .pricing-card:hover, .workflow-card:hover, .dashboard-card:hover, .glass-stat-card:hover, .timeline-card:hover {
+    transform: translateY(-8px) scale(1.01) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 20px rgba(59, 130, 246, 0.15) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Animated Gradient Border for Cards */
+.card::before, .stat-box::before, .dashboard-card::before, .glass-stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px; 
+    padding: 2px; 
+    background: linear-gradient(45deg, var(--primary), transparent, var(--secondary)); 
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude; 
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+.card:hover::before, .stat-box:hover::before, .dashboard-card:hover::before, .glass-stat-card:hover::before {
+    opacity: 1;
+}
+
+/* BUTTONS */
+.btn {
+    border-radius: 50px !important;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-main);
+    letter-spacing: 0.5px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+    color: var(--text-main) !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+}
+
+.btn-outline {
+    border-color: var(--primary) !important;
+    color: var(--text-main) !important;
+    background: rgba(59, 130, 246, 0.05) !important;
+}
+
+.btn-outline:hover {
+    background: rgba(59, 130, 246, 0.15) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Ripple Effect */
+.btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    background-color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+@keyframes ripple {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* DASHBOARD SP UI */
+.sidebar {
+    background: rgba(14, 20, 40, 0.75) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.2) !important;
+}
+.nav-item {
+    border-radius: 10px;
+    margin: 4px 12px;
+    transition: var(--transition);
+}
+.nav-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+.nav-item.active {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), transparent) !important;
+    border-left: 4px solid var(--primary) !important;
+    color: var(--text-main) !important;
+}
+
+/* Typography refinements */
+.sub-heading {
+    color: var(--secondary) !important;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+}
+
+/* Hero Section SP Style */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.1), transparent 40%);
+}
+.hero-bg-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.3;
+    background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* =========================================
+   AMBIENT ANIMATION OVERRIDES - NO HOVER
+   ========================================= */
+
+/* Strip Hover Transformations from existing rules */
+.card:hover, .stat-box:hover, .team-card:hover, .service-card:hover, .blog-card:hover, .pricing-card:hover, .workflow-card:hover, .dashboard-card:hover, .glass-stat-card:hover, .timeline-card:hover {
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Ambient glow on cards instead of hover */
+.card::before, .stat-box::before, .dashboard-card::before, .glass-stat-card::before {
+    opacity: 0.5 !important;
+    animation: ambientBorderGlow 4s infinite alternate ease-in-out !important;
+}
+
+@keyframes ambientBorderGlow {
+    0% { opacity: 0.1; }
+    100% { opacity: 0.7; }
+}
+
+/* Ambient Button Breathing (Replaces Hover) */
+.btn-primary {
+    animation: btnBreath 4s infinite alternate ease-in-out !important;
+}
+.btn-primary:hover, .btn-outline:hover {
+    transform: none !important;
+}
+
+@keyframes btnBreath {
+    0% { box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2) !important; }
+    100% { box-shadow: 0 4px 25px rgba(59, 130, 246, 0.6) !important; }
+}
+
+.btn-outline {
+    animation: btnOutlineBreath 4s infinite alternate ease-in-out !important;
+}
+@keyframes btnOutlineBreath {
+    0% { background: rgba(59, 130, 246, 0.02) !important; box-shadow: 0 0 0 transparent !important; }
+    100% { background: rgba(59, 130, 246, 0.08) !important; box-shadow: 0 0 15px rgba(59, 130, 246, 0.2) !important; }
+}
+
+/* Cyber Cursor */
+.cyber-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    mix-blend-mode: multiply;
+}
+.cyber-cursor.active {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(6, 182, 212, 0.2);
+    border-color: var(--secondary);
+}
+
+/* Global Ambient Background Elements */
+.ambient-aurora {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1), transparent 60%);
+    animation: auroraMove 15s infinite alternate ease-in-out;
+}
+@keyframes auroraMove {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.5) translate(10%, 10%); }
+}
+
+/* Dashboard live elements */
+.blinking-status {
+    animation: statusBlink 2s infinite;
+}
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.radar-sweep {
+    animation: radarRotate 4s linear infinite;
+    transform-origin: center;
+}
+@keyframes radarRotate {
+    to { transform: rotate(360deg); }
+}
+
+
+
+/* ==========================================================================
+   ENTERPRISE SAAS LIGHT THEME OVERRIDES
+   ========================================================================== */
+:root {
+    --bg-color: #F8FAFC !important;
+    --bg-dark: #EEF4FF !important;
+    --card-bg: rgba(255, 255, 255, 0.85) !important;
+    --border-color: #E2E8F0 !important;
+    --primary: #2563EB !important;
+    --secondary: #06B6D4 !important;
+    --accent: #4F46E5 !important;
+    --success: #22C55E !important;
+    --warning: #F59E0B !important;
+    --danger: #EF4444 !important;
+    --text-main: #0F172A !important;
+    --text-muted: #64748B !important;
+    --shadow: rgba(15,23,42,0.08) !important;
+}
+
+body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif !important; color: var(--text-main) !important; }
+p, a, span, div { font-family: 'Inter', sans-serif; }
+.counter, .price, .stat-value { font-family: 'IBM Plex Mono', monospace !important; }
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 20px var(--shadow) !important;
+}
+.nav-link {
+    color: var(--text-main) !important;
+    font-weight: 500 !important;
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-item.active .nav-link::after { width: 100%; }
+
+/* Cards & Containers */
+.card, .feature-card, .pricing-card, .dashboard-card, .workflow-box, .accordion-item {
+    background: var(--card-bg) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 40px var(--shadow) !important;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.card:hover, .feature-card:hover, .pricing-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 50px rgba(15,23,42,0.12) !important;
+}
+/* Gradient Top Border */
+.card::before, .feature-card::before, .pricing-card::before, .dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+    z-index: 10;
+}
+
+/* Buttons */
+.btn, .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+    color: #ffffff !important;
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(37,99,235,0.25) !important;
+    font-weight: 600 !important;
+}
+.btn:hover, .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(37,99,235,0.4) !important;
+    transform: translateY(-2px) !important;
+}
+.btn-outline {
+    background: transparent !important;
+    color: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+    box-shadow: none !important;
+}
+.btn-outline:hover {
+    background: rgba(37,99,235,0.05) !important;
+}
+
+/* Forms */
+input, textarea, select {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    color: var(--text-main) !important;
+    box-shadow: 0 2px 5px var(--shadow) !important;
+}
+input:focus, textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.2) !important;
+    outline: none !important;
+}
+.form-group label {
+    color: var(--text-muted) !important;
+    background: #ffffff !important;
+}
+
+/* Dashboard Specifics */
+.sidebar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-right: 1px solid var(--border-color) !important;
+}
+.sidebar-link.active {
+    background: rgba(37,99,235,0.08) !important;
+    border-left: 3px solid var(--primary) !important;
+    color: var(--primary) !important;
+}
+.sidebar-link { color: var(--text-muted) !important; }
+.sidebar-link:hover { color: var(--primary) !important; }
+
+/* Tables */
+.table { background: #ffffff !important; border-radius: 16px !important; overflow: hidden; border: 1px solid var(--border-color); }
+.table th { background: #F8FAFC !important; color: var(--text-muted) !important; font-weight: 600 !important; }
+.table td { border-top: 1px solid var(--border-color) !important; color: var(--text-main) !important; }
+
+/* Footer */
+.footer { background: #ffffff !important; border-top: 1px solid var(--border-color) !important; }
+.footer h4, .footer p, .footer a { color: var(--text-main) !important; }
+.footer-bottom { border-top: 1px solid var(--border-color) !important; }
+.footer-newsletter { background: #ffffff !important; border: 1px solid var(--border-color) !important; }
+
+/* Clean Up Residual Dark Theme Hacks */
+.bg-glow-1, .bg-glow-2, .cyber-grid-bg, .moving-gradient { opacity: 0.05 !important; filter: invert(1) !important; }
+
+
+/* ==========================================================================
+   ENTERPRISE LIGHT THEME BUG FIXES (VISIBILITY)
+   ========================================================================== */
+.premium-faq-section, .faq-section {
+    background: var(--bg-color) !important;
+    color: var(--text-main) !important;
+}
+
+.pricing-card p, .testimonial-card p, .accordion-body, .accordion-item p, p {
+    color: var(--text-muted) !important;
+    opacity: 1 !important;
+}
+
+.accordion-header .header-text, .sub-heading, h2, h3 {
+    color: var(--text-main) !important;
+}
+
+/* Fix any remaining explicit dark backgrounds on sections */
+section {
+    background-color: transparent !important;
+}
+.popular-badge {
+    background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(37,99,235,0.25) !important;
+}
+
+/* Increase Logo Size */
+.nav-logo-img, .logo img {
+    max-height: 80px !important;
+}
+@media (max-width: 768px) {
+    .nav-logo-img, .logo img {
+        max-height: 60px !important;
+    }
+}
+
+/* Preloader Light Theme Fix */
+.preloader {
+    background: var(--bg-color) !important;
+}
+.preloader-terminal {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 10px 40px var(--shadow) !important;
+}
+.terminal-header {
+    background: rgba(37,99,235,0.05) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+.terminal-body {
+    color: var(--text-muted) !important;
+}
+.radar-scan {
+    border-color: rgba(37,99,235,0.2) !important;
+}
+.radar-scan::before {
+    background: conic-gradient(from 0deg, transparent 70%, rgba(37,99,235,0.3) 100%) !important;
+}
+
+/* Allow Most Popular badge to break outside the pricing card */
+.pricing-card {
+    overflow: visible !important;
+}
+
+/* ==========================================================================
+   ULTIMATE ANIMATION OVERHAUL (NO HOVERS)
+   ========================================================================== */
+
+/* Background FX Containers */
+.bg-fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.bg-fx-particles, .bg-fx-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.05;
+}
+.bg-fx-particles {
+    animation: floatUpDown 15s infinite linear;
+}
+.bg-fx-dots {
+    background-size: 30px 30px;
+    opacity: 0.03;
+    animation: floatUpDown 20s infinite reverse linear;
+}
+
+/* Image Overlays */
+.scan-line-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.scan-line-container::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, transparent, rgba(37, 99, 235, 0.4), transparent);
+    animation: scanLineAnim 4s infinite linear;
+    pointer-events: none;
+}
+
+/* Marquee */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: 20px 0;
+}
+.marquee-container::before, .marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+}
+.marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+}
+.marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+}
+.logos-wrapper {
+    display: inline-flex;
+    gap: 50px;
+    animation: marquee 25s infinite linear;
+}
+.logos-wrapper .logo-placeholder {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+/* Pricing Premium Float & Glow */
+.pricing-card.premium {
+    animation: floatUpDown 6s infinite ease-in-out;
+}
+.pricing-card.premium .popular-badge {
+    animation: softPulse 3s infinite;
+}
+
+/* GSAP Initial States */
+.stagger-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Keyframes */
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+@keyframes scanLineAnim {
+    0% { top: -100%; }
+    100% { top: 200%; }
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes softPulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+/* Testimonial Carousel Styles */
+.testimonials-carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 350px;
+}
+.testimonial-slide {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    opacity: 0;
+    transform: scale(0.9) translateX(100px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+.testimonial-slide.active {
+    opacity: 1;
+    transform: scale(1.08) translateX(0);
+    z-index: 3;
+}
+.testimonial-slide.prev {
+    opacity: 0.4;
+    transform: scale(0.9) translateX(-150px);
+    z-index: 2;
+}
+.testimonial-slide.next {
+    opacity: 0.4;
+    transform: scale(0.9) translateX(150px);
+    z-index: 2;
+}
+
+/* ==========================================================================
+   BLOG SECTION HOVER EFFECTS (RE-ENABLED)
+   ========================================================================== */
+
+/* 3D Tilt & Glow Hover */
+.blog-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+    position: relative;
+    z-index: 1;
+}
+.blog-card:hover {
+    transform: perspective(1000px) translateY(-10px) rotateX(4deg) scale(1.03) !important;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2) !important;
+    z-index: 5;
+}
+
+/* Image Zoom & Dark Overlay */
+.blog-card .scan-line-container {
+    overflow: hidden;
+    position: relative;
+}
+.blog-card img {
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+.blog-card:hover img {
+    transform: scale(1.08) !important;
+}
+.blog-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0);
+    border-radius: inherit;
+    transition: box-shadow 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+.blog-card:hover::after {
+    box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.8);
+}
+
+/* Button & Link Hover Animations */
+.blog-content .text-link {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    color: var(--text-main);
+    transition: color 0.3s ease;
+}
+.blog-content .text-link::after {
+    content: '\2192';
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+.blog-content .text-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+.blog-card:hover .text-link {
+    color: var(--primary);
+}
+.blog-card:hover .text-link::after {
+    transform: translateX(5px);
+}
+.blog-card:hover .text-link::before {
+    width: 100%;
+}
+
+/* ==========================================================================
+   SERVICES SECTION HOVER EFFECTS (RE-ENABLED)
+   ========================================================================== */
+
+/* 3D Tilt & Glow Hover */
+.premium-module-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* For scan effects */
+}
+.premium-module-card:hover {
+    transform: perspective(1000px) translateY(-12px) rotateX(4deg) scale(1.03) !important;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2) !important;
+    z-index: 5;
+}
+
+/* Neon Border Animation */
+.premium-module-card .glow-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; /* Border thickness */
+    background: linear-gradient(90deg, transparent, transparent, transparent);
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.premium-module-card:hover .glow-border {
+    background: linear-gradient(90deg, #00ffcc, #3B82F6, #00ffcc);
+    background-size: 200% 200%;
+    animation: borderGradient 3s linear infinite;
+    opacity: 1;
+}
+@keyframes borderGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Cyber Scan Effect */
+.premium-module-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 204, 0.6), transparent);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+.premium-module-card:hover::before {
+    animation: cardScanLine 2s infinite linear;
+    opacity: 1;
+}
+@keyframes cardScanLine {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+/* Shine Sweep */
+.premium-module-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(45deg) translateX(-100%);
+    transition: none;
+    pointer-events: none;
+    z-index: 3;
+}
+.premium-module-card:hover::after {
+    transform: rotate(45deg) translateX(100%);
+    transition: transform 0.8s ease-out;
+}
+
+/* Button & Link Hover Animations */
+.premium-module-card .module-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.premium-module-card:hover .module-btn {
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-size: 200% 100%;
+    animation: btnGradient 3s infinite linear;
+    border-color: transparent;
+    color: #fff;
+}
+.premium-module-card:hover .module-btn::after {
+    content: '\2192';
+    margin-left: 8px;
+    display: inline-block;
+    animation: slideRight 1s infinite alternate;
+}
+@keyframes btnGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+@keyframes slideRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(5px); }
+}
+
+
+/* Trusted Partner Logo Hover */
+.logos-wrapper .logo-placeholder {
+    transition: all 0.3s ease !important;
+}
+.logos-wrapper .logo-placeholder:hover {
+    filter: grayscale(0%) !important;
+    transform: scale(1.15) !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   ABOUT SECTION HOVER EFFECTS (RE-ENABLED)
+   ========================================================================== */
+
+/* Image 3D Tilt Hover */
+.about-image {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+.about-image:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.03) !important;
+}
+
+/* Stat Box Lift & Glow */
+.stat-box {
+    transition: all 0.3s ease !important;
+}
+.stat-box:hover {
+    transform: translateY(-8px) scale(1.05) !important;
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2) !important;
+    border-color: rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Feature List Hover */
+.feature-item {
+    transition: all 0.3s ease !important;
+    border-left: 3px solid transparent;
+    padding-left: 10px;
+}
+.feature-item:hover {
+    border-left: 3px solid var(--primary);
+    background: rgba(37, 99, 235, 0.02);
+    border-radius: 0 8px 8px 0;
+}
+.feature-item > div:last-child {
+    transition: transform 0.3s ease !important;
+}
+.feature-item:hover > div:last-child {
+    transform: translateX(8px);
+}
+.feature-icon {
+    transition: transform 0.4s ease !important;
+    position: relative;
+}
+.feature-item:hover .feature-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+.feature-icon::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.5);
+    z-index: -1;
+}
+.feature-item:hover .feature-icon::before {
+    opacity: 1;
+    transform: scale(1.5);
+    animation: ripple 1.5s infinite;
+}
+@keyframes ripple {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+
+/* ==========================================================================
+   PRICING SECTION HOVER EFFECTS (RE-ENABLED)
+   ========================================================================== */
+
+/* 3D Tilt & Lift */
+.pricing-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+    position: relative;
+    z-index: 1;
+}
+.pricing-card:hover {
+    transform: perspective(1000px) translateY(-12px) rotateX(4deg) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25) !important;
+    z-index: 5;
+}
+
+/* Neon Gradient Border on Hover */
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(90deg, transparent, transparent, transparent);
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+.pricing-card:hover::before {
+    background: linear-gradient(90deg, #00ffcc, #3B82F6, #00ffcc);
+    background-size: 200% 200%;
+    animation: borderGradient 3s linear infinite;
+    opacity: 1;
+}
+
+/* Button & Link Hover Animations */
+.pricing-card .btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.pricing-card:hover .btn {
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background-size: 200% 100%;
+    animation: btnGradient 3s infinite linear;
+    border-color: transparent;
+    color: #fff;
+    transform: scale(1.05);
+}
+.pricing-card .btn::after {
+    content: '\2192';
+    margin-left: 8px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    width: 0;
+}
+.pricing-card:hover .btn::after {
+    opacity: 1;
+    width: auto;
+    animation: slideRight 1s infinite alternate;
+}
+
+/* Fix FAQ Accordion hover text visibility */
+.accordion-item:hover .accordion-header .header-text,
+.premium-accordion .accordion-item:hover .accordion-header {
+    color: var(--primary) !important;
+    text-shadow: none !important;
+}
+.accordion-item:hover, .accordion-header:hover {
+    background: var(--card-bg) !important;
+}
+
+/* Fix Badge text visibility in light theme */
+.badge-essential, .badge-advanced {
+    color: var(--text-main) !important;
+    font-weight: 600;
+}
+.badge-advanced {
+    color: #9333ea !important; /* purple for advanced */
+}
+@media (max-width: 768px) { .mobile-top-logo img.nav-logo-img, .logo img { height: 40px !important; min-height: 40px !important; width: auto !important; } }
+
+/* Sticky Header & Mobile Hamburger Fix */
+@media (max-width: 1024px) {
+    .top-navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+        flex-wrap: nowrap !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    .main-wrapper {
+        padding-top: 70px !important;
+    }
+    .nav-left {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 15px !important;
+    }
+    .mobile-toggle {
+        display: block !important;
+        color: #fff !important;
+        background: transparent !important;
+        border: none !important;
+        font-size: 1.5rem !important;
+    }
+    .mobile-top-logo {
+        display: flex !important;
+        align-items: center !important;
+    }
+    .mobile-top-logo img, img.mobile-logo {
+        display: block !important;
+        height: 40px !important;
+        min-height: 40px !important;
+        width: auto !important;
+    }
+}
+
+/* Fix hero overlapping on mobile */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+        line-height: 1.2 !important;
+        letter-spacing: -1px !important;
+    }
+}

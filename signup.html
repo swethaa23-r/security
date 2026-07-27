@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Signup | Stackly</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=3">
     
 
@@ -32,9 +32,9 @@ body.auth-split-page {
     margin: 0; padding: 0;
     min-height: 100dvh;
     display: flex;
-    background-color: #0b1120 !important;
+    background-color: var(--bg-color) !important;
     font-family: 'Outfit', sans-serif;
-    color: #fff;
+    color: var(--text-main);
     overflow-x: hidden;
 }
 
@@ -45,7 +45,7 @@ body.auth-split-page {
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background: #0b1120;
+    background: transparent;
     position: relative;
     z-index: 10;
 }
@@ -71,10 +71,13 @@ body.auth-split-page {
 .back-link:hover { color: #fff; }
 
 .auth-card {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
 }
 
 .auth-header {
@@ -84,6 +87,7 @@ body.auth-split-page {
 .auth-header h1 {
     font-size: 2rem !important;
     font-weight: 600 !important;
+    color: var(--text-main) !important;
     margin-bottom: 8px !important;
     animation: textReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.1s;
     opacity: 0;
@@ -91,7 +95,7 @@ body.auth-split-page {
 }
 .auth-header p {
     font-size: 0.95rem !important;
-    color: #94a3b8 !important;
+    color: #64748b !important;
     margin: 0 !important;
     animation: textReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
     opacity: 0;
@@ -121,42 +125,60 @@ body.auth-split-page {
 }
 
 /* Crisp Professional Inputs */
+.form-group input::placeholder, .form-group select::placeholder {
+    color: #94a3b8 !important;
+}
 .form-group {
     margin-bottom: 20px !important;
     text-align: left !important;
     position: relative;
 }
-.form-group label {
+.form-group label, .form-group label:has(+ input), .form-group label:has(+ select) {
     font-size: 0.9rem !important;
-    font-weight: 500 !important;
-    color: #cbd5e1 !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
     margin-bottom: 8px !important;
-    display: block;
+    display: block !important;
+    position: static !important;
+    background: transparent !important;
+    top: auto !important;
+    left: auto !important;
+    pointer-events: auto !important;
 }
 .form-group input, .form-group select {
-    .form-group input, .form-group select {
-    padding: 14px 16px !important;
+    padding: 16px 18px !important;
     height: auto !important;
     line-height: normal !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background: #ffffff !important;
+    color: var(--text-main) !important;
+    font-size: 1.05rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    cursor: text;
+}
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 16px center !important;
+    background-size: 16px !important;
+    cursor: pointer;
+}
+.form-group input:hover, .form-group select:hover {
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.1) !important;
+    background: #ffffff !important;
+    outline: none;
 }
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
     display: none;
-}
-    border-radius: 8px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background: #050816 !important;
-    color: #fff !important;
-    font-size: 0.95rem !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    width: 100% !important;
-    box-sizing: border-box;
-}
-.form-group input:focus, .form-group select:focus {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15) !important;
-    background: #000 !important;
-    outline: none;
 }
 
 /* Checkbox fixes */
@@ -212,10 +234,11 @@ input[type="password"]::-ms-clear {
     text-align: center;
     margin-top: 24px;
     font-size: 0.9rem;
-    color: #94a3b8;
+    color: #64748b;
 }
 .auth-footer a {
-    color: #fff;
+    color: var(--primary);
+    font-weight: 600;
     text-decoration: none;
     margin-left: 4px;
 }
@@ -287,7 +310,7 @@ input[type="password"]::-ms-clear {
 /* --- Responsive Breakpoints --- */
 @media (max-width: 1024px) {
     .split-right { display: none !important; }
-    .split-left { background: #050816 !important; }
+    .split-left { background: transparent !important; }
 }
 
 @media (max-width: 767px) {
@@ -296,9 +319,12 @@ input[type="password"]::-ms-clear {
     .auth-container { padding: 0 15px !important; }
 }
 </style>
-    <link rel="stylesheet" href="updates.css">
+    <link rel="stylesheet" href="updates.css?v=2">
 </head>
 <body class="auth-split-page">
+    <!-- Cyber Background Elements -->
+    <div class="cyber-grid-bg"></div>
+    <div class="moving-gradient"></div>
 
 
 
@@ -346,7 +372,6 @@ input[type="password"]::-ms-clear {
                         <input type="password" id="password" placeholder="��������" >
                         <i class="fa-solid fa-eye toggle-password" style="position: absolute; right: 16px; top: 42px; cursor: pointer; color: #cbd5e1;"></i>
                         </div>
-</div>
                 </div>
                 <div class="form-options">
                     <label class="remember-me">
@@ -430,12 +455,12 @@ input[type="password"]::-ms-clear {
             }
         })();
     </script>
-</div><div class="split-right"><div class="split-right-content"><h2>Secure Your Enterprise</h2><p>Advanced threat detection, zero-day protection, and real-time response.</p></div></div><script>
+</div><script>
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
     var role = document.getElementById('role');
     if (role && role.value === 'admin') {
-        window.location.href = 'analyst-dashboard.html';
+        window.location.href = 'unlisted-dashboard.html';
     } else {
         window.location.href = 'dashboard.html';
     }
@@ -443,6 +468,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
 </script>
 </body>
 </html>
+
 
 
 
