@@ -1,0 +1,471 @@
+
+/* ==========================================================================
+   ULTIMATE MOBILE ANTI-OVERFLOW & RESPONSIVE FIX SYSTEM
+   ========================================================================== */
+
+html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+    /* Stop any container or section from exceeding screen width */
+    html, body, main, section, header, footer, article, aside, nav, 
+    .section, .hero, .page-header, .footer, .contact-section, 
+    .about-details, .contact-form-wrapper, .panel, .welcome-banner,
+    .main-wrapper, .content-area, .premium-stats-section,
+    .premium-values-section, .premium-timeline-section, .explore-topics,
+    .whitepaper-cta, .cta, .team, .why-choose-us, .mission-vision,
+    .navbar, .nav-links, .top-navbar, .container, .wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Adjust heavy paddings for small mobile displays */
+    .section, .hero, .page-header, .footer, .contact-section, 
+    .about-details, .contact-form-wrapper, .panel, .welcome-banner,
+    .content-area, .premium-stats-section, .premium-values-section,
+    .premium-timeline-section, .explore-topics, .whitepaper-cta, .cta {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Force all grid layouts into single column vertical stacks */
+    .grid, .row, .about-grid, .blog-grid, .service-grid, .contact-grid, 
+    .dashboard-grid, .quick-actions-grid, .charts-row, .footer-grid, 
+    .premium-values-grid, .testimonials-grid, .service-details-layout,
+    .team-grid, .mv-grid, .stats-grid, .process-grid, .glass-stats-grid,
+    .top-metrics-grid, .main-grid, .dashboard-grid-3, .content-grid,
+    .analytics-grid, .metrics-grid, .incident-grid, .threat-grid, .heatmap-grid,
+    .testimonial-cards-grid, .dashboard-sub-grid, .use-cases-grid,
+    .spa-features-grid, .workflow-interactive-container,
+    div[style*="grid-template-columns"], 
+    div[style*="display: grid"],
+    section[style*="grid-template-columns"] {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Force flex headers/bars into vertical stacks */
+    .blog-header-layout, .footer-newsletter, .newsletter-form, 
+    .hero-actions, .cta-actions, .form-row, .breadcrumbs,
+    .score-container, .contact-info-card, .values-bottom-content,
+    .timeline-cta, .cta-banner {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix navbar items wrapping on small mobile screens */
+    .top-navbar, .nav-left, .nav-right {
+        flex-wrap: wrap !important;
+        max-width: 100% !important;
+    }
+
+    /* Prevent overlay badges, floating items, and icons from causing horizontal scroll */
+    .overlay-feature, .floating-badge, .rating-badge {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 10px 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix timeline elements on mobile */
+    .timeline-track {
+        left: 20px !important;
+    }
+    .timeline-row.row-left, .timeline-row.row-right {
+        justify-content: flex-end !important;
+        width: 100% !important;
+    }
+    .timeline-card {
+        width: calc(100% - 50px) !important;
+        max-width: calc(100% - 50px) !important;
+    }
+    .timeline-row.row-left .t-icon, .timeline-row.row-right .t-icon {
+        left: -35px !important;
+        right: auto !important;
+        transform: none !important;
+    }
+    .timeline-hub {
+        width: 160px !important;
+        height: 160px !important;
+    }
+
+    /* Glow borders and background particle constraints */
+    .glow-border, .v-spotlight, .values-radial-glow, .spa-radial-glow, 
+    .bg-glow-1, .bg-glow-2, .moving-gradient, .cyber-grid-bg, 
+    .values-bg-grid, .timeline-bg-grid {
+        max-width: 100vw !important;
+        overflow: hidden !important;
+    }
+
+    /* Text & binary wrapping */
+    .values-binary-bg {
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+        font-size: 0.75rem !important;
+        max-width: 100% !important;
+    }
+
+    p, h1, h2, h3, h4, h5, h6, span, label, div {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+    }
+
+    /* Universal media element responsiveness */
+    img, video, canvas, svg, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* Table scrolling inside container */
+    .table-responsive, [style*="overflow-x: auto"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: block !important;
+    }
+
+    .table-responsive table, [style*="overflow-x: auto"] table {
+        min-width: 600px !important;
+    }
+}
+
+/* ==========================================================================
+   CONTACT PAGE & FORM SPECIFIC ANTI-OVERFLOW FIXES
+   ========================================================================== */
+
+.contact-section,
+.contact-grid,
+.contact-form-wrapper,
+.contact-info-card,
+.contact-info-content,
+.contact-form,
+.form-row,
+.form-group,
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    .contact-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 20px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-form-wrapper {
+        padding: 20px 14px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        border-radius: 12px !important;
+        margin: 0 !important;
+    }
+
+    .contact-info-content {
+        padding: 20px 14px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-form {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    .form-row {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 15px !important;
+        grid-template-columns: 1fr !important;
+        box-sizing: border-box !important;
+    }
+
+    .form-group {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        margin-bottom: 15px !important;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        font-size: 0.9rem !important;
+        padding: 12px 14px !important;
+    }
+
+    .contact-form-wrapper h2 {
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .contact-form-wrapper p {
+        font-size: 0.85rem !important;
+        margin-bottom: 20px !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .map-section, .map-section iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 300px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* Disable initial off-screen transform translation on mobile screens to prevent overflow */
+@media (max-width: 768px) {
+    .slide-in-right, 
+    .slide-in-left, 
+    .slide-in-down, 
+    .fade-in-up, 
+    .stagger-up, 
+    .v-stagger, 
+    .t-stagger {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .contact-form-wrapper,
+    .contact-info-card,
+    .contact-info-content,
+    .contact-grid {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Mobile Sidebar & Drawer Close Icon Styling */
+.nav-drawer button {
+    cursor: pointer;
+    font-size: 1.5rem !important;
+    color: #fff !important;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.nav-drawer button:hover {
+    color: var(--primary) !important;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .sidebar-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    .sidebar-close-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #fff !important;
+        font-size: 1.5rem !important;
+        padding: 5px !important;
+    }
+    .sidebar-close-btn:hover {
+        color: var(--primary) !important;
+    }
+}
+
+/* ==========================================================================
+   FULL SCREEN MOBILE NAVIGATION DRAWER (100% COVERED SCREEN)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .nav-drawer {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        background: #0b1120 !important;
+        z-index: 9999 !important;
+        padding: 30px 24px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        gap: 15px !important;
+        overflow-y: auto !important;
+        border-right: none !important;
+        box-shadow: none !important;
+    }
+
+    .nav-drawer a {
+        font-size: 1.3rem !important;
+        padding: 14px 0 !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .nav-drawer a:hover {
+        padding-left: 0 !important;
+        color: var(--primary) !important;
+    }
+
+    .nav-drawer a.btn {
+        margin-top: 20px !important;
+        padding: 16px !important;
+        font-size: 1.1rem !important;
+        width: 100% !important;
+        border-radius: 50px !important;
+    }
+}
+
+/* ==========================================================================
+   COMPREHENSIVE SECURITY MODULES SECTION - MOBILE OVERFLOW FIX
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .premium-modules-section {
+        padding: 50px 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    .premium-services-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 20px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .premium-module-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        transform: none !important;
+    }
+
+    .premium-module-card:hover {
+        transform: translateY(-5px) !important;
+    }
+
+    .module-content {
+        padding: 20px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .module-header {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    .module-header .icon-wrapper {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.4rem !important;
+    }
+
+    .premium-module-card h3 {
+        font-size: 1.15rem !important;
+        word-break: break-word !important;
+    }
+
+    .premium-module-card p {
+        font-size: 0.88rem !important;
+        word-break: break-word !important;
+    }
+
+    .module-btn {
+        width: 100% !important;
+        padding: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .services-footer {
+        text-align: center !important;
+        word-break: break-word !important;
+        padding: 0 10px !important;
+    }
+}
+
+/* Dashboard Toggle Switch */
+.toggle { position: relative; width: 44px; height: 24px; display: inline-block; }
+.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-slider { position: absolute; inset: 0; background: rgba(255,255,255,0.1); border-radius: 24px; cursor: pointer; transition: 0.3s; }
+.toggle-slider:before { content: ''; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: 0.3s; }
+.toggle input:checked + .toggle-slider { background: var(--primary); }
+.toggle input:checked + .toggle-slider:before { transform: translateX(20px); }
+

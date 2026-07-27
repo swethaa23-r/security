@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Stackly Platform</title>
+    <meta name="description" content="Contact our cybersecurity experts today.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { box-sizing: border-box; }
+        .dashboard-grid-3 { grid-template-columns: 1fr 2fr 1fr; }
+        @media (max-width: 1024px) {
+            .dashboard-grid-3 { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 768px) {
+            .admin-info { display: none !important; }
+        }
+    </style>
+
+<style>
+        /* Extra mobile tweaks to prevent content hiding */
+        th, td { white-space: nowrap; }
+        .ai-text, .action-btn { overflow-wrap: break-word; word-break: break-word; }
+        img, canvas { max-width: 100%; height: auto; }
+        @media (max-width: 480px) {
+            .quick-actions { grid-template-columns: 1fr !important; }
+            .content-area { padding: 15px !important; }
+            .panel { padding: 15px !important; }
+            .search-bar { width: 100% !important; max-width: 100%; }
+        }
+</style>
+<style>
+        /* Global Anti-Overlap & Image Constraints */
+        p, h1, h2, h3, h4, h5, h6, span, a, li, div {
+            overflow-wrap: break-word;
+        }
+        th, td { 
+            white-space: nowrap; 
+        }
+        img, video, canvas, iframe { 
+            max-width: 100% !important; 
+            height: auto !important; 
+            object-fit: contain;
+        }
+        /* Fix generic flex/grid overlaps on mobile */
+        @media (max-width: 768px) {
+            .flex-container, .row, .dashboard-grid {
+                flex-wrap: wrap !important;
+            }
+        }
+</style>
+
+    
+
+
+    <style>
+    /* Ultimate Mobile Layout Fix v2 */
+    @media (max-width: 768px) {
+        /* Force ALL dashboard data grids into a single vertical stack */
+        .top-metrics-grid, 
+        .main-grid, 
+        .dashboard-grid, 
+        .dashboard-grid-3,
+        .quick-actions, 
+        .quick-actions-grid,
+        .content-grid,
+        .analytics-grid,
+        .metrics-grid,
+        .stats-grid,
+        .incident-grid,
+        .threat-grid,
+        .heatmap-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+        }
+
+        /* Hide non-essential header texts to save space on tiny screens */
+        .admin-profile span,
+        .admin-info,
+        .status-badge,
+        .header-title-text {
+            display: none !important;
+        }
+
+        /* Ensure navbars remain in one row but have space */
+        .top-navbar, .nav-left, .nav-right {
+            justify-content: space-between !important;
+            flex-wrap: nowrap !important;
+        }
+        
+        .nav-left {
+            gap: 10px !important;
+        }
+
+        /* Adjust content area padding to prevent overflow */
+        .content-area {
+            padding: 15px !important;
+        }
+        
+        /* Any table container */
+        .table-responsive, [style*="overflow-x: auto"] {
+            max-width: 100% !important;
+        }
+    }
+    </style>
+
+    <link rel="stylesheet" href="updates.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="lo.webp" alt="Logo" class="nav-logo-img">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a></li>
+            <li><a href="about.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">About</a></li>
+            <li><a href="services.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Service</a></li>
+            <li><a href="blog.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Blog</a></li>
+            <li><a href="contact.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Contact</a></li>
+        </ul>
+        <a href="login.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" class="btn btn-primary">Login</a>
+    
+            <button class="hamburger" onclick="document.getElementById('nav-drawer').classList.add('active'); document.getElementById('nav-overlay').classList.add('active'); document.body.classList.add('no-scroll');">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            </nav>
+
+            <div class="mobile-nav-overlay" id="nav-overlay" onclick="document.getElementById('nav-drawer').classList.remove('active'); this.classList.remove('active'); document.body.classList.remove('no-scroll');"></div>
+            <div class="nav-drawer" id="nav-drawer">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    
+                    <button onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 5px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a>
+            <a href="about.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">About</a>
+            <a href="services.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Service</a>
+            <a href="blog.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Blog</a>
+            <a href="contact.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Contact</a>
+                <a href="login.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" class="btn btn-outline" style="margin-top: 20px;">Login</a>
+                
+            </div>
+            
+
+    <!-- Page Header -->
+    <section class="page-header slide-in-down" style="background-image: url('images/hero.webp');">
+        <div class="page-header-content fade-in-up">
+            <div class="breadcrumbs">
+                <a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a> <span class="separator">|</span> <span class="current">Contact</span>
+            </div>
+            <h1>Contact</h1>
+        </div>
+        <div class="header-overlay"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section" style="background: var(--bg-color);">
+        <div class="contact-grid">
+            
+            <!-- Left: Contact Info Card -->
+            <div class="contact-info-card fade-in-up" style="background-image: url('images/process.webp');">
+                <div class="contact-info-overlay"></div>
+                <div class="contact-info-content">
+                    <div class="info-row">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p>+91 9087654321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-row mt-3">
+                        <div class="info-icon">✉️</div>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>support@stackly.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-row mt-3">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>Office Address</h4>
+                            <p>MMR Complex, Chinna Thirupathi, Salem-636008</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-row mt-3">
+                        <div class="info-icon">🕒</div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right: Contact Form -->
+            <div class="contact-form-wrapper slide-in-right">
+                <span class="sub-heading">Send Us a Message</span>
+                <h2>Start the Conversation</h2>
+                <p style="margin-bottom: 30px;">Complete the form below and our cybersecurity specialists will respond promptly with the right solutions for your business.</p>
+                
+                <form action="404.html" class="contact-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your Full Name" required="">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Business Email</label>
+                            <input type="email" placeholder="Your Business Email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="Your Phone Number">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Service Interested In</label>
+                        <select required="">
+                            <option value="">Select Service</option>
+                            <option value="managed">Managed Security Services</option>
+                            <option value="cloud">Cloud Security</option>
+                            <option value="network">Network Security</option>
+                            <option value="endpoint">Endpoint Protection</option>
+                            <option value="penetration">Penetration Testing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Your Message</label>
+                        <textarea placeholder="Tell us about your cybersecurity needs..." rows="4" required=""></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section fade-in-up">
+        <!-- Embedding Salem map using a generic Google Maps iframe structure for the requested address -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.3879203929424!2d78.1565!3d11.6661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1c0aaaaaaab%3A0x1234567890abcdef!2sMMR%20Complex%2C%20Chinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu%20636008!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="lo.webp" alt="Logo" class="nav-logo-img">
+                </div>
+                <p class="mt-3" style="font-size: 0.95rem;">Protecting businesses and consumers with AI-powered cybersecurity solutions, real-time threat monitoring, and enterprise-grade digital defense for a safer connected world.</p>
+                <div class="social-links mt-3">
+                    <a href="404.html" class="social-icon">f</a>
+                    <a href="404.html" class="social-icon">t</a>
+                    <a href="404.html" class="social-icon">in</a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a></li>
+                    <li><a href="about.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">About</a></li>
+                    <li><a href="services.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Service</a></li>
+                    <li><a href="blog.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Blog</a></li>
+                    <li><a href="contact.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Location</h4>
+                <div style="width: 100%; height: 150px; border-radius: 8px; overflow: hidden; margin-top: 15px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.3879203929424!2d78.1565!3d11.6661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1c0aaaaaaab%3A0x1234567890abcdef!2sMMR%20Complex%2C%20Chinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu%20636008!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        MMR Complex, Chinna Thirupathi, Salem-636008
+                    </li>
+                    <li>
+                        <span class="contact-icon">✉</span>
+                        support@stackly.com
+                    </li>
+                    <li class="call-now mt-3">
+                        <div class="call-icon">📞</div>
+                        <div>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">Call Now</span><br>
+                            <strong>+91 9087654321</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-newsletter fade-in-up">
+            <h3>Stay Ahead of Cyber Threats</h3>
+            <form action="404.html" class="newsletter-form">
+                <input type="email" placeholder="Email Address" required="">
+                <button type="submit" class="btn btn-primary">Subscribe Now</button>
+            </form>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Stackly Platform. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Lenis, GSAP, ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Universal Mobile Toggle (Safe)
+        (function() {
+            var btn = document.getElementById('mobileToggle');
+            var side = document.getElementById('sidebar');
+            var over = document.getElementById('sidebarOverlay');
+            if(btn && side && over) {
+                btn.onclick = function() {
+                    side.classList.toggle('active');
+                    over.classList.toggle('active');
+                };
+                over.onclick = function() {
+                    side.classList.remove('active');
+                    over.classList.remove('active');
+                };
+            }
+        })();
+    </script>
+</body>
+</html>
+
+

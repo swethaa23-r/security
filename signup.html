@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Signup | Stackly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    
+
+
+
+
+    
+
+
+    
+
+
+
+
+
+
+<style>
+/* =========================================================
+   MODERN SPLIT-SCREEN AUTHENTICATION (ENTERPRISE SAAS)
+   ========================================================= */
+
+body.auth-split-page {
+    margin: 0; padding: 0;
+    min-height: 100dvh;
+    display: flex;
+    background-color: #0b1120 !important;
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* --- Left Side (Form) --- */
+.split-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #0b1120;
+    position: relative;
+    z-index: 10;
+}
+
+.auth-container {
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 0 auto;
+    position: relative;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    transition: color 0.3s;
+    animation: fadeIn 0.6s ease forwards;
+}
+.back-link:hover { color: #fff; }
+
+.auth-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.auth-header {
+    text-align: left !important;
+    margin-bottom: 30px !important;
+}
+.auth-header h1 {
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+    animation: textReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.1s;
+    opacity: 0;
+    transform: translateY(15px);
+}
+.auth-header p {
+    font-size: 0.95rem !important;
+    color: #94a3b8 !important;
+    margin: 0 !important;
+    animation: textReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+/* Staggered form animations */
+.form-group, .form-options, .btn-submit, .auth-footer {
+    animation: textReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(15px);
+}
+.form-group:nth-child(1) { animation-delay: 0.3s; }
+.form-group:nth-child(2) { animation-delay: 0.4s; }
+.form-group:nth-child(3) { animation-delay: 0.5s; }
+.form-options { animation-delay: 0.6s; }
+.btn-submit { animation-delay: 0.7s; }
+.auth-footer { animation-delay: 0.8s; }
+
+@keyframes textReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Crisp Professional Inputs */
+.form-group {
+    margin-bottom: 20px !important;
+    text-align: left !important;
+    position: relative;
+}
+.form-group label {
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    color: #cbd5e1 !important;
+    margin-bottom: 8px !important;
+    display: block;
+}
+.form-group input, .form-group select {
+    .form-group input, .form-group select {
+    padding: 14px 16px !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: #050816 !important;
+    color: #fff !important;
+    font-size: 0.95rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15) !important;
+    background: #000 !important;
+    outline: none;
+}
+
+/* Checkbox fixes */
+.remember-me {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+.remember-me input[type="checkbox"] {
+    accent-color: var(--primary);
+    width: 16px !important;
+    height: 16px !important;
+    cursor: pointer;
+    margin: 0;
+}
+.forgot-password {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.forgot-password:hover { text-decoration: underline; }
+
+/* Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px !important;
+    font-size: 0.9rem !important;
+}
+
+/* Primary Button */
+.btn-submit {
+    height: 52px !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    background: var(--primary) !important;
+    color: #000 !important;
+    border: none !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    width: 100% !important;
+    cursor: pointer;
+}
+.btn-submit:hover {
+    background: #00e5ff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.3) !important;
+}
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+.auth-footer a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 4px;
+}
+.auth-footer a:hover { color: var(--primary); }
+
+/* --- Right Side (Graphic / Branding) --- */
+.split-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #050816 0%, #0a1930 100%);
+    overflow: hidden;
+    padding: 40px;
+}
+
+/* Animated Particles / Grid */
+.split-right::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+    animation: rotateGlow 30s linear infinite;
+    z-index: 1;
+}
+.split-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 2;
+    animation: panGrid 20s linear infinite;
+}
+
+@keyframes rotateGlow { 100% { transform: rotate(360deg); } }
+@keyframes panGrid { 100% { background-position: 60px 60px; } }
+
+.split-right-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 400px;
+    animation: fadeInRight 1s ease forwards;
+}
+
+.split-right-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #fff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.split-right-content p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1024px) {
+    .split-right { display: none !important; }
+    .split-left { background: #050816 !important; }
+}
+
+@media (max-width: 767px) {
+    .auth-header h1 { font-size: 1.8rem !important; }
+    .form-options { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .auth-container { padding: 0 15px !important; }
+}
+</style>
+    <link rel="stylesheet" href="updates.css">
+</head>
+<body class="auth-split-page">
+
+
+
+
+    <div class="split-left"><div class="auth-container">
+        <a href="index.html" class="back-link">
+            <i class="fa-solid fa-link"></i>
+            Back to Home
+        </a>
+
+        <div class="auth-card">
+            
+            <div class="auth-header">
+                <a href="index.html" class="auth-logo">
+                    <img src="lo.webp" alt="Logo" class="nav-logo-img">
+                </a>
+                <h1>Create an Account</h1>
+                <p>Start securing your infrastructure today.</p>
+            </div>
+            
+                        <form action="login.html" method="GET">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="John Doe" >
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" id="companyName" placeholder="Acme Corp" >
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="role">Role</label>
+                        <select id="role" name="role" >
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                            <option value="partner">Partner</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="email">Work Email</label>
+                        <input type="text" id="email" placeholder="john@acme.com" >
+                    </div>
+                    <div class="form-group full-width password-group" style="position: relative;">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="��������" >
+                        <i class="fa-solid fa-eye toggle-password" style="position: absolute; right: 16px; top: 42px; cursor: pointer; color: #cbd5e1;"></i>
+                        </div>
+</div>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" >
+                        I agree to the <a href="#" style="color:var(--primary); margin-left:4px;">Terms & Conditions</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn-submit">Create Account</button>
+            </form>
+
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Log in</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple JavaScript for Password Strength -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const passInput = document.getElementById('password');
+            const strengthContainer = document.getElementById('strengthContainer');
+            const strengthText = document.getElementById('strengthText');
+            
+            passInput.addEventListener('input', () => {
+                const val = passInput.value;
+                if(val.length > 0) {
+                    strengthContainer.style.display = 'block';
+                } else {
+                    strengthContainer.style.display = 'none';
+                }
+                
+                let score = 0;
+                if(val.length >= 8) score += 1;
+                if(/[A-Z]/.test(val) && /[a-z]/.test(val)) score += 1;
+                if(/[0-9]/.test(val)) score += 1;
+                if(/[^A-Za-z0-9]/.test(val)) score += 1;
+                
+                strengthContainer.className = 'pwd-strength-container';
+                
+                if (val.length === 0) {
+                    strengthText.textContent = '';
+                } else if (score <= 1) {
+                    strengthContainer.classList.add('strength-1');
+                    strengthText.textContent = 'Weak';
+                } else if (score === 2) {
+                    strengthContainer.classList.add('strength-2');
+                    strengthText.textContent = 'Medium';
+                } else if (score === 3) {
+                    strengthContainer.classList.add('strength-3');
+                    strengthText.textContent = 'Strong';
+                } else if (score >= 4) {
+                    strengthContainer.classList.add('strength-4');
+                    strengthText.textContent = 'Very Strong';
+                }
+            });
+        });
+    </script>
+
+
+    <!-- Lenis, GSAP, ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Universal Mobile Toggle (Safe)
+        (function() {
+            var btn = document.getElementById('mobileToggle');
+            var side = document.getElementById('sidebar');
+            var over = document.getElementById('sidebarOverlay');
+            if(btn && side && over) {
+                btn.onclick = function() {
+                    side.classList.toggle('active');
+                    over.classList.toggle('active');
+                };
+                over.onclick = function() {
+                    side.classList.remove('active');
+                    over.classList.remove('active');
+                };
+            }
+        })();
+    </script>
+</div><div class="split-right"><div class="split-right-content"><h2>Secure Your Enterprise</h2><p>Advanced threat detection, zero-day protection, and real-time response.</p></div></div><script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var role = document.getElementById('role');
+    if (role && role.value === 'admin') {
+        window.location.href = 'analyst-dashboard.html';
+    } else {
+        window.location.href = 'dashboard.html';
+    }
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

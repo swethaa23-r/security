@@ -1,0 +1,644 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Stackly Platform</title>
+    <meta name="description" content="Explore Stackly's comprehensive cybersecurity services.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { box-sizing: border-box; }
+        .dashboard-grid-3 { grid-template-columns: 1fr 2fr 1fr; }
+        @media (max-width: 1024px) {
+            .dashboard-grid-3 { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 768px) {
+            .admin-info { display: none !important; }
+        }
+    </style>
+
+<style>
+        /* Extra mobile tweaks to prevent content hiding */
+        th, td { white-space: nowrap; }
+        .ai-text, .action-btn { overflow-wrap: break-word; word-break: break-word; }
+        img, canvas { max-width: 100%; height: auto; }
+        @media (max-width: 480px) {
+            .quick-actions { grid-template-columns: 1fr !important; }
+            .content-area { padding: 15px !important; }
+            .panel { padding: 15px !important; }
+            .search-bar { width: 100% !important; max-width: 100%; }
+        }
+</style>
+<style>
+        /* Global Anti-Overlap & Image Constraints */
+        p, h1, h2, h3, h4, h5, h6, span, a, li, div {
+            overflow-wrap: break-word;
+        }
+        th, td { 
+            white-space: nowrap; 
+        }
+        img, video, canvas, iframe { 
+            max-width: 100% !important; 
+            height: auto !important; 
+            object-fit: contain;
+        }
+        /* Fix generic flex/grid overlaps on mobile */
+        @media (max-width: 768px) {
+            .flex-container, .row, .dashboard-grid {
+                flex-wrap: wrap !important;
+            }
+        }
+</style>
+
+    
+
+
+    <style>
+    /* Ultimate Mobile Layout Fix v2 */
+    @media (max-width: 768px) {
+        /* Force ALL dashboard data grids into a single vertical stack */
+        .top-metrics-grid, 
+        .main-grid, 
+        .dashboard-grid, 
+        .dashboard-grid-3,
+        .quick-actions, 
+        .quick-actions-grid,
+        .content-grid,
+        .analytics-grid,
+        .metrics-grid,
+        .stats-grid,
+        .incident-grid,
+        .threat-grid,
+        .heatmap-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+        }
+
+        /* Hide non-essential header texts to save space on tiny screens */
+        .admin-profile span,
+        .admin-info,
+        .status-badge,
+        .header-title-text {
+            display: none !important;
+        }
+
+        /* Ensure navbars remain in one row but have space */
+        .top-navbar, .nav-left, .nav-right {
+            justify-content: space-between !important;
+            flex-wrap: nowrap !important;
+        }
+        
+        .nav-left {
+            gap: 10px !important;
+        }
+
+        /* Adjust content area padding to prevent overflow */
+        .content-area {
+            padding: 15px !important;
+        }
+        
+        /* Any table container */
+        .table-responsive, [style*="overflow-x: auto"] {
+            max-width: 100% !important;
+        }
+    }
+    </style>
+
+    <link rel="stylesheet" href="updates.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="lo.webp" alt="Logo" class="nav-logo-img">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a></li>
+            <li><a href="about.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">About</a></li>
+            <li><a href="services.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Service</a></li>
+            <li><a href="blog.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Blog</a></li>
+            <li><a href="contact.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Contact</a></li>
+        </ul>
+        <a href="login.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" class="btn btn-primary">Login</a>
+    
+            <button class="hamburger" onclick="document.getElementById('nav-drawer').classList.add('active'); document.getElementById('nav-overlay').classList.add('active'); document.body.classList.add('no-scroll');">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            </nav>
+
+            <div class="mobile-nav-overlay" id="nav-overlay" onclick="document.getElementById('nav-drawer').classList.remove('active'); this.classList.remove('active'); document.body.classList.remove('no-scroll');"></div>
+            <div class="nav-drawer" id="nav-drawer">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    
+                    <button onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 5px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a>
+            <a href="about.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">About</a>
+            <a href="services.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Service</a>
+            <a href="blog.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Blog</a>
+            <a href="contact.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Contact</a>
+                <a href="login.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');" class="btn btn-outline" style="margin-top: 20px;">Login</a>
+                
+            </div>
+            
+
+    <!-- Page Header -->
+    <section class="page-header slide-in-down" style="background-image: url('images/about_expert_laptop.webp');">
+        <div class="page-header-content fade-in-up">
+            <div class="breadcrumbs">
+                <a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a> <span class="separator">|</span> <span class="current">Services</span>
+            </div>
+            <h1>Services</h1>
+        </div>
+        <div class="header-overlay"></div>
+    </section>
+
+    <!-- Interactive SPA Service Details Content -->
+    <section class="service-details premium-spa-section section position-relative" style="background: #060b14; padding: 100px 5%; overflow: hidden;">
+        
+        <!-- Animated Background Effects -->
+        <div class="spa-bg-grid"></div>
+        <div class="spa-particles" id="spa-particles"></div>
+        <div class="spa-radial-glow"></div>
+        
+        <div class="service-details-layout position-relative" style="z-index: 2; max-width: 1200px; margin: 0 auto;">
+            
+            <!-- Dynamic Sidebar Menu -->
+            <aside class="spa-sidebar fade-in-up">
+                <div class="sidebar-widget spa-menu-container">
+                    <h3 class="spa-sidebar-title">Explore Services</h3>
+                    <ul class="sidebar-menu spa-menu">
+                        <li><a href="javascript:void(0)" class="spa-nav-item active" data-service="managed-security">Managed Security <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                        <li><a href="javascript:void(0)" class="spa-nav-item" data-service="cloud-security">Cloud Security <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                        <li><a href="javascript:void(0)" class="spa-nav-item" data-service="network-security">Network Security <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                        <li><a href="javascript:void(0)" class="spa-nav-item" data-service="endpoint-protection">Endpoint Protection <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                        <li><a href="javascript:void(0)" class="spa-nav-item" data-service="penetration-testing">Penetration Testing <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                        <li><a href="javascript:void(0)" class="spa-nav-item" data-service="incident-response">Incident Response <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                        <li><a href="javascript:void(0)" class="spa-nav-item" data-service="security-compliance">Security Compliance <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="support-cta mt-4" style="background-image: url('images/faq_support.webp'); border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 229, 255, 0.2);">
+                    <div class="support-cta-overlay" style="background: rgba(11, 17, 32, 0.8);"></div>
+                    <div class="support-cta-content position-relative" style="z-index: 2; padding: 25px;">
+                        <h3 style="color: #fff; font-size: 1.3rem;">Need Expert Support?</h3>
+                        <p style="color: #bbb; font-size: 0.9rem; margin-bottom: 20px;">Our cybersecurity specialists are ready to help you choose the right security solution for your organization.</p>
+                        <a href="404.html" class="btn btn-primary" style="width: 100%; text-align: center; border-radius: 50px;">Contact Our Experts</a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Dynamic Main Content Container -->
+            <div class="spa-main-content slide-in-right" id="spa-main-content">
+                
+                <div class="spa-hero-image-wrapper mb-4">
+                    <img src="images/about_mission_lock.webp" alt="Service Hero" id="dynamic-image" loading="lazy">
+                    <div class="spa-image-glow"></div>
+                </div>
+                
+                <div class="spa-content-body">
+                    <h2 id="dynamic-title">Managed Security Services</h2>
+                    <h3 id="dynamic-subtitle" style="color: var(--primary);">Comprehensive Security Managed by Experts</h3>
+                    
+                    <div id="dynamic-desc-container">
+                        <p>Stackly Managed Security Services provide continuous protection for your IT infrastructure through advanced monitoring, AI-powered threat detection, vulnerability management, and rapid incident response. Our security experts work as an extension of your team, ensuring your systems remain secure, compliant, and always available.</p>
+                        <p>Our end-to-end managed security solutions cover every layer of your digital environment, providing proactive defense against evolving cyber threats.</p>
+                    </div>
+                    
+                    <!-- Dynamic Stats Row -->
+                    <div class="spa-stats-row mt-4 mb-4" id="dynamic-stats">
+                        <div class="s-stat"><h4 style="color:#fff;margin:0;">24/7</h4><span style="color:var(--primary);font-size:0.8rem;text-transform:uppercase;">Monitoring</span></div>
+                        <div class="s-stat"><h4 style="color:#fff;margin:0;">99.9%</h4><span style="color:var(--primary);font-size:0.8rem;text-transform:uppercase;">Uptime</span></div>
+                        <div class="s-stat"><h4 style="color:#fff;margin:0;"><15min</h4><span style="color:var(--primary);font-size:0.8rem;text-transform:uppercase;">Response Time</span></div>
+                    </div>
+                    
+                    <h3 class="mt-4 mb-3">Service Features</h3>
+                    <div class="spa-features-grid" id="dynamic-features">
+                        <!-- Dynamic feature cards will be injected here via JS -->
+                        <div class="spa-feature-card">
+                            <div class="spa-f-icon"><i class="fa-solid fa-desktop"></i></div>
+                            <h4>24/7 Monitoring</h4>
+                            <p>Continuously monitor networks, endpoints, and cloud environments to detect suspicious activity in real time.</p>
+                        </div>
+                        <div class="spa-feature-card">
+                            <div class="spa-f-icon"><i class="fa-solid fa-shield"></i></div>
+                            <h4>Threat Detection</h4>
+                            <p>Identify and neutralize advanced persistent threats and zero-day vulnerabilities before they cause harm.</p>
+                        </div>
+                        <div class="spa-feature-card">
+                            <div class="spa-f-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <h4>Incident Response</h4>
+                            <p>Contain and mitigate cyber incidents quickly to minimize downtime and business disruption.</p>
+                        </div>
+                        <div class="spa-feature-card">
+                            <div class="spa-f-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <h4>Compliance Support</h4>
+                            <p>Maintain compliance with industry regulations through continuous assessments and reporting.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom CTA -->
+                    <div class="spa-cta-row mt-5">
+                        <a href="404.html" class="btn btn-primary" style="border-radius: 50px;">Get Started Now</a>
+                        <a href="404.html" class="btn btn-outline ml-3" style="border-radius: 50px; margin-left: 15px;">Download Datasheet</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services section">
+        <div class="section-header fade-in-up">
+            <span class="sub-heading">Our Services</span>
+            <h2>Smart Security Solutions Powered by Innovation</h2>
+            <p>Our specialists combine AI-driven threat intelligence, continuous monitoring, and strategic security planning to deliver reliable protection against sophisticated cyber threats.</p>
+        </div>
+        
+        <div class="services-grid mt-3">
+            <div class="service-card stagger-up">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Managed Security Services</h3>
+                <p>Protect your business with 24/7 monitoring, rapid threat detection, and expert security management.</p>
+                <a href="404.html" class="learn-more">Learn More →</a>
+            </div>
+            
+            <div class="service-card stagger-up">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Penetration Testing Services</h3>
+                <p>Identify hidden vulnerabilities through real-world attack simulations before hackers can exploit them.</p>
+                <a href="404.html" class="learn-more">Learn More →</a>
+            </div>
+            
+            <div class="service-card stagger-up">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Advanced Cloud Security</h3>
+                <p>Secure cloud infrastructure, applications, and sensitive data with continuous protection and monitoring.</p>
+                <a href="404.html" class="learn-more">Learn More →</a>
+            </div>
+            
+            <div class="service-card stagger-up">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Network Security Solutions</h3>
+                <p>Strengthen your network with intelligent monitoring, intrusion prevention, and advanced threat defense.</p>
+                <a href="404.html" class="learn-more">Learn More →</a>
+            </div>
+            
+            <div class="service-card stagger-up">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Endpoint Protection Platform</h3>
+                <p>Defend every endpoint using AI-powered detection, malware prevention, and automated threat response.</p>
+                <a href="404.html" class="learn-more">Learn More →</a>
+            </div>
+            
+            <div class="service-card stagger-up">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Risk Management</h3>
+                <p>Meet compliance standards through expert risk assessments, security audits, and policy management.</p>
+                <a href="404.html" class="learn-more">Learn More →</a>
+            </div>
+        </div>
+        <div class="services-footer fade-in-up mt-3">
+            <span class="badge badge-cyan">Free</span>
+            Need a Security Solution Tailored to Your Business? <a href="404.html" class="text-link">Get Protected Today</a>
+        </div>
+    </section>
+
+    <!-- Our Work Process -->
+    <section class="work-process-section" style="background-image: url('images/about_hero_banner.webp');">
+        <div class="work-process-overlay"></div>
+        <div class="work-process-content section">
+            <div class="section-header fade-in-up">
+                <span class="sub-heading">Our Work Process</span>
+                <h2>Simple, Strategic, Secure Process</h2>
+                <p>Our proven security workflow combines expert analysis, AI-driven monitoring, and continuous protection to identify risks, strengthen defenses.</p>
+            </div>
+            
+            <div class="process-grid mt-3">
+                <div class="process-box stagger-up">
+                    <span class="process-num">01</span>
+                    <h3>Security Assessment</h3>
+                    <p>Identify vulnerabilities, assess risks, and build a stronger security foundation for your business.</p>
+                </div>
+                
+                                <div class="process-box stagger-up">
+                    <span class="process-num">02</span>
+                    <h3>Risk Analysis &amp; Planning</h3>
+                    <p>Analyze potential threats and create a tailored security strategy that aligns with your goals.</p>
+                </div>
+                
+                <div class="process-box stagger-up">
+                    <span class="process-num">03</span>
+                    <h3>Security Integration</h3>
+                    <p>Deploy advanced security solutions and strengthen your systems against evolving cyber threats.</p>
+                </div>
+                
+                <div class="process-box stagger-up">
+                    <span class="process-num">04</span>
+                    <h3>Continuous Monitoring</h3>
+                    <p>Monitor your infrastructure 24/7, detect threats in real time, and respond before risks escalate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us section" style="background: var(--bg-color);">
+        <div class="about-grid" style="align-items: center;">
+            <div class="about-content fade-in-up">
+                <span class="sub-heading">Why Choose Us</span>
+                <h2>Advanced Cyber Security Built for Modern Business</h2>
+                <p>We combine advanced cybersecurity technologies, certified expertise, and proactive strategies to deliver reliable protection against evolving digital threats. Our customized solutions help businesses strengthen security, reduce risks, and maintain operational resilience with confidence.</p>
+                
+                <ul class="check-list mt-3">
+                    <li class="stagger-up"><span class="check-icon">✓</span> Advanced Threat Intelligence</li>
+                    <li class="stagger-up"><span class="check-icon">✓</span> 24/7 Security Monitoring</li>
+                    <li class="stagger-up"><span class="check-icon">✓</span> Scalable Security Solutions</li>
+                    <li class="stagger-up"><span class="check-icon">✓</span> Rapid Incident Response</li>
+                    <li class="stagger-up"><span class="check-icon">✓</span> Compliance &amp; Risk Management</li>
+                </ul>
+            </div>
+            <div class="about-image slide-in-right position-relative">
+                <img src="images/process.webp" alt="Cyber Security Professional" width="100%" height="auto" class="rounded-img" loading="lazy">
+                <div class="floating-badge" style="background: rgba(0, 0, 0, 0.8); border: 1px solid var(--primary); color: #fff;">
+                    <strong style="color: var(--primary);">24/7</strong><br>
+                    <span>Security Monitoring</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials section" style="background: var(--card-bg);">
+        <div class="testimonials-grid" style="grid-template-columns: 1fr 1fr; align-items: center;">
+            <div class="testimonial-image fade-in-up position-relative">
+                <img src="images/about_expert_laptop.webp" alt="Testimonials" class="rounded-img" width="100%" loading="lazy">
+                <div class="overlay-feature" style="bottom: 20px; left: 20px; background: rgba(11, 17, 32, 0.9);">
+                    <div>
+                        <div class="stars" style="font-size: 1.2rem;">★★★★★</div>
+                        <h4 style="margin: 0;">4.9/5 Clients Rating</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-content">
+                <span class="sub-heading">Testimonial</span>
+                <h2>Trusted by Businesses Worldwide</h2>
+                <p style="margin-bottom: 30px;">See how organizations rely on Stackly to strengthen their cybersecurity, protect critical assets, and confidently defend against evolving digital threats.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="testimonial-card slide-in-left" style="background: rgba(11, 17, 32, 0.8);">
+                        <div class="quote-icon" style="color: var(--primary); font-size: 2rem; text-align: right; margin-bottom: -20px;">❞</div>
+                        <div class="stars">★★★★★</div>
+                        <p style="font-size: 0.9rem;">"Their experienced security team identified critical vulnerabilities, implemented advanced protection, and provided continuous monitoring that gives us complete confidence."</p>
+                        <div class="client-info mt-3">
+                            <h4 style="font-size: 1rem;">David Wilson</h4>
+                            <span style="font-size: 0.8rem;">Chief Technology Officer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card slide-in-right" style="background: rgba(11, 17, 32, 0.8);">
+                        <div class="quote-icon" style="color: var(--primary); font-size: 2rem; text-align: right; margin-bottom: -20px;">❞</div>
+                        <div class="stars">★★★★★</div>
+                        <p style="font-size: 0.9rem;">"The AI-powered threat detection and 24/7 security monitoring have significantly reduced cyber risks while improving our overall compliance and operational resilience."</p>
+                        <div class="client-info mt-3">
+                            <h4 style="font-size: 1rem;">James Rodriguez</h4>
+                            <span style="font-size: 0.8rem;">Nexa Digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium FAQ Section -->
+    <section class="premium-faq-section section position-relative">
+        <!-- Animated Background Effects -->
+        <div class="faq-bg-grid"></div>
+        <div class="faq-particles" id="faq-particles-services"></div>
+        
+        <div class="faq-grid">
+            <!-- Left Column: Support Hub -->
+            <div class="faq-content faq-left-col">
+                <span class="sub-heading fade-in-up">FAQs</span>
+                <h2 class="fade-in-up">Frequently Asked Questions</h2>
+                <p class="fade-in-up">Find answers to common questions about our cybersecurity services, threat protection, and managed security solutions. Need more help? Our experts are available to assist you.</p>
+                
+                <div class="premium-support-card mt-3">
+                    <div class="support-image-wrapper">
+                        <div class="glass-frame"></div>
+                        <img src="images/faq_support.webp" alt="Support Specialist" class="zoom-img" loading="lazy">
+                        <div class="neon-border"></div>
+                    </div>
+                    <div class="support-card-content">
+                        <h3>Still Have Questions?</h3>
+                        <p>Our cybersecurity specialists are ready to help you find the right solutions for your digital life.</p>
+                        <div class="trust-badges mt-2">
+                            <span class="badge"><i class="fa-solid fa-headset"></i> 24/7 Support</span>
+                            <span class="badge"><i class="fa-solid fa-shield-check"></i> Enterprise Grade</span>
+                        </div>
+                        <a href="404.html" class="btn btn-primary mt-3" style="width: 100%; text-align: center; border-radius: 50px;">Contact Our Experts</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Premium Accordion -->
+            <div class="accordion premium-accordion">
+                <div class="accordion-item faq-stagger">
+                    <button class="accordion-header">
+                        <span class="header-text">What cybersecurity services does Stackly provide?</span>
+                        <div class="icon-wrap"><i class="fa-solid fa-plus icon"></i></div>
+                    </button>
+                    <div class="accordion-body open" style="max-height: 200px;">
+                        <div class="body-content">
+                            <p>We offer comprehensive cybersecurity solutions including real-time antivirus, privacy VPN, identity theft protection, security monitoring, and PC tune-up to protect your devices from evolving cyber threats.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item faq-stagger">
+                    <button class="accordion-header">
+                        <span class="header-text">How does your 24/7 security monitoring work?</span>
+                        <div class="icon-wrap"><i class="fa-solid fa-plus icon"></i></div>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-content">
+                            <p>Our AI-driven engine continuously scans your system in the background, identifying and neutralizing threats instantly without affecting your computer's performance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item faq-stagger">
+                    <button class="accordion-header">
+                        <span class="header-text">Is Stackly suitable for small businesses?</span>
+                        <div class="icon-wrap"><i class="fa-solid fa-plus icon"></i></div>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-content">
+                            <p>Yes, we offer flexible licensing for small businesses, ensuring that all employee devices are protected with our centralized management console.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item faq-stagger">
+                    <button class="accordion-header">
+                        <span class="header-text">What is included in a system assessment?</span>
+                        <div class="icon-wrap"><i class="fa-solid fa-plus icon"></i></div>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-content">
+                            <p>Our assessment scans your entire system for vulnerabilities, outdated software, weak passwords, and existing malware, providing a detailed health report.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item faq-stagger">
+                    <button class="accordion-header">
+                        <span class="header-text">How quickly can you respond to a security incident?</span>
+                        <div class="icon-wrap"><i class="fa-solid fa-plus icon"></i></div>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-content">
+                            <p>Our automated systems respond to detected threats in milliseconds, while our dedicated incident response team is available 24/7 for complex manual interventions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item faq-stagger">
+                    <button class="accordion-header">
+                        <span class="header-text">Do you provide cloud security services?</span>
+                        <div class="icon-wrap"><i class="fa-solid fa-plus icon"></i></div>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="body-content">
+                            <p>Our platform includes secure cloud backups and zero-knowledge encryption, ensuring your sensitive files are safe even if your physical device is compromised.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom CTA -->
+        <div class="faq-bottom-cta fade-in-up mt-5 text-center" style="position: relative; z-index: 2;">
+            <a href="404.html" class="btn btn-primary" style="margin-right: 15px; border-radius: 50px;">Talk to an Expert</a>
+            <a href="404.html" class="btn btn-outline" style="border-radius: 50px;">Request a Demo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="lo.webp" alt="Logo" class="nav-logo-img">
+                </div>
+                <p class="mt-3" style="font-size: 0.95rem;">Protecting businesses and consumers with AI-powered cybersecurity solutions, real-time threat monitoring, and enterprise-grade digital defense for a safer connected world.</p>
+                <div class="social-links mt-3">
+                    <a href="404.html" class="social-icon">f</a>
+                    <a href="404.html" class="social-icon">t</a>
+                    <a href="404.html" class="social-icon">in</a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Home</a></li>
+                    <li><a href="about.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">About</a></li>
+                    <li><a href="services.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Service</a></li>
+                    <li><a href="contact.html" onclick="document.getElementById('nav-drawer').classList.remove('active'); document.getElementById('nav-overlay').classList.remove('active'); document.body.classList.remove('no-scroll');">Contact</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Location</h4>
+                <div style="width: 100%; height: 150px; border-radius: 8px; overflow: hidden; margin-top: 15px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.3879203929424!2d78.1565!3d11.6661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1c0aaaaaaab%3A0x1234567890abcdef!2sMMR%20Complex%2C%20Chinna%20Thirupathi%2C%20Salem%2C%20Tamil%20Nadu%20636008!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        245 Innovation Avenue, New York, NY 10001
+                    </li>
+                    <li>
+                        <span class="contact-icon">✉</span>
+                        support@stackly.com
+                    </li>
+                    <li class="call-now mt-3">
+                        <div class="call-icon">📞</div>
+                        <div>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">Call Now</span><br>
+                            <strong>+1 (800) 555-0199</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-newsletter fade-in-up">
+            <h3>Stay Ahead of Cyber Threats</h3>
+            <form action="404.html" class="newsletter-form">
+                <input type="email" placeholder="Email Address" required="">
+                <button type="submit" class="btn btn-primary">Subscribe Now</button>
+            </form>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Stackly Platform. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Lenis, GSAP, ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Universal Mobile Toggle (Safe)
+        (function() {
+            var btn = document.getElementById('mobileToggle');
+            var side = document.getElementById('sidebar');
+            var over = document.getElementById('sidebarOverlay');
+            if(btn && side && over) {
+                btn.onclick = function() {
+                    side.classList.toggle('active');
+                    over.classList.toggle('active');
+                };
+                over.onclick = function() {
+                    side.classList.remove('active');
+                    over.classList.remove('active');
+                };
+            }
+        })();
+    </script>
+</body>
+</html>
+
+
+
