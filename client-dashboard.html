@@ -15,7 +15,21 @@
     <link rel="stylesheet" href="updates.css?v=2">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
-        :root { /* Removed inline root, using style.css */ }
+        :root {
+            --bg-color: #0b1120;
+            --bg-panel: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary: #00e5ff;
+            --secondary: #3b82f6;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --sidebar-width: 260px;
+            --header-height: 70px;
+        }
         body { background-color: var(--bg-color); color: #fff; overflow-x: hidden; display: flex; height: 100vh; }
 
         @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -433,7 +447,7 @@
             <div class="panel">
                 <div class="panel-header">
                     <h3 class="panel-title"><i class="fa-solid fa-triangle-exclamation"></i> Recent Security Events</h3>
-                    <button class="btn-outline" style="font-size:0.8rem;padding:6px 14px;">Export Log</button>
+                    <button class="btn-outline" style="font-size:0.8rem;padding:6px 14px;" onclick="window.location.href='404.html'">Export Log</button>
                 </div>
                 <div class="table-wrapper">
                     <table class="data-table">

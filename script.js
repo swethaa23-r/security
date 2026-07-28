@@ -382,6 +382,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Reset body state when loading from BFCache (e.g. clicking Back)
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+            gsap.set(document.body, { opacity: 1, filter: 'blur(0px)' });
+        }
+    });
+
+
 });
 
 

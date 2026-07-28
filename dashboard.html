@@ -1,6 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
     <script>
-        if (localStorage.getItem('userRole') !== 'admin') {
+        const role = localStorage.getItem('userRole');
+        if (role === 'analyst') {
+            window.location.href = 'analyst-dashboard.html';
+        } else if (role !== 'admin') {
             window.location.href = 'login.html';
         }
     </script>
@@ -13,7 +16,21 @@
     
     <style>
         * { box-sizing: border-box; }
-        :root { /* Removed inline root, using style.css */ }
+        :root {
+            --bg-color: #0b1120;
+            --bg-panel: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary: #00e5ff;
+            --secondary: #3b82f6;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --sidebar-width: 260px;
+            --header-height: 70px;
+        }
 
         body.dashboard-body {
             margin: 0;

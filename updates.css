@@ -843,7 +843,7 @@ html, body {
 /* ==========================================================================
    ENTERPRISE SAAS LIGHT THEME OVERRIDES
    ========================================================================== */
-:root {
+body:not(.dashboard-body) {
     --bg-color: #F8FAFC !important;
     --bg-dark: #EEF4FF !important;
     --card-bg: rgba(255, 255, 255, 0.85) !important;
@@ -857,9 +857,6 @@ html, body {
     --text-main: #0F172A !important;
     --text-muted: #64748B !important;
     --shadow: rgba(15,23,42,0.08) !important;
-}
-
-body {
     background-color: var(--bg-color) !important;
     color: var(--text-main) !important;
 }

@@ -359,7 +359,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
                         <option value="" disabled selected>Select your role</option>
                         <option value="client">Client</option>
                         <option value="admin">Admin</option>
-                        <option value="unlisted">Unlisted</option>
+                        <option value="analyst">Analyst</option>
                     </select>
                     <span id="role-error" style="color: #ff4757; font-size: 0.85rem; display: none; margin-top: 8px;">Please select a role to continue.</span>
                 </div>
@@ -433,8 +433,8 @@ document.querySelector('form').addEventListener('submit', function(e) {
         window.location.href = 'client-dashboard.html';
     } else if (role.value === 'admin') {
         window.location.href = 'dashboard.html';
-    } else if (role.value === 'unlisted') {
-        window.location.href = 'unlisted-dashboard.html';
+    } else if (role.value === 'analyst') {
+        window.location.href = 'analyst-dashboard.html';
     }
 });
 
