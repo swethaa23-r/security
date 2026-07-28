@@ -614,3 +614,22 @@ document.querySelectorAll('.sidebar-nav a, .nav-item').forEach(link => {
         }
     });
 });
+
+// --- Lazy Load Maps ---
+document.addEventListener("DOMContentLoaded", () => {
+    const mapIframes = document.querySelectorAll('iframe[data-src]');
+    const mapObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                iframe.src = iframe.dataset.src;
+                iframe.removeAttribute('data-src');
+                observer.unobserve(iframe);
+            }
+        });
+    }, { rootMargin: '0px 0px 2500px 0px' });
+
+    mapIframes.forEach(iframe => {
+        mapObserver.observe(iframe);
+    });
+});

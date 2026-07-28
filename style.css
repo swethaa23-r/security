@@ -4311,7 +4311,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem) !important; line-height: 1.3; }
     .mobile-toggle { display: block !important; }
     
     .mobile-top-logo { display: flex !important; align-items: center; }
-    .mobile-top-logo img { height: 32px !important; max-height: 32px !important; }
+    .mobile-top-logo img { height: 70px !important; max-height: 70px !important; }
 
     /* Off-canvas Sidebar */
     aside.sidebar {
