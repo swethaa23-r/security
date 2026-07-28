@@ -1792,6 +1792,11 @@ section {
 }
 
 /* Fix hero overlapping on mobile */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 120px !important; /* Account for fixed navbar */
+    }
+}
 @media (max-width: 480px) {
     .hero h1 {
         font-size: clamp(2rem, 10vw, 3rem) !important;

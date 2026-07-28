@@ -134,33 +134,63 @@ document.addEventListener('DOMContentLoaded', () => {
     // CUSTOM SPLIT TEXT FUNCTION
     function splitText(selector) {
         const elements = document.querySelectorAll(selector);
-        elements.forEach(el => {
-            const text = el.innerText;
-            el.innerHTML = '';
-            const words = text.split(' ');
-            words.forEach((word, wordIndex) => {
-                const wordSpan = document.createElement('span');
-                wordSpan.style.display = 'inline-block';
-                wordSpan.style.whiteSpace = 'nowrap';
-                
-                const chars = word.split('');
-                chars.forEach(char => {
-                    const charSpan = document.createElement('span');
-                    charSpan.style.display = 'inline-block';
-                    charSpan.style.opacity = '1'; 
-                    charSpan.className = 'split-char';
-                    charSpan.innerText = char;
-                    wordSpan.appendChild(charSpan);
-                });
-                
-                el.appendChild(wordSpan);
-                if (wordIndex < words.length - 1) {
-                    const space = document.createElement('span');
-                    space.style.display = 'inline-block';
-                    space.innerHTML = '&nbsp;';
-                    el.appendChild(space);
+        
+        function processNode(node) {
+            if (node.nodeType === 3) {
+                const text = node.textContent;
+                if (!text.trim()) {
+                    const emptySpan = document.createElement('span');
+                    emptySpan.textContent = text;
+                    return emptySpan;
                 }
+                
+                const fragment = document.createDocumentFragment();
+                const words = text.split(/(\s+)/);
+                
+                words.forEach(word => {
+                    if (/^\s+$/.test(word)) {
+                        const space = document.createElement('span');
+                        space.style.display = 'inline-block';
+                        space.innerHTML = word.replace(/ /g, '&nbsp;').replace(/\n/g, '');
+                        fragment.appendChild(space);
+                    } else if (word.length > 0) {
+                        const wordSpan = document.createElement('span');
+                        wordSpan.style.display = 'inline-block';
+                        wordSpan.style.whiteSpace = 'nowrap';
+                        
+                        const chars = word.split('');
+                        chars.forEach(char => {
+                            const charSpan = document.createElement('span');
+                            charSpan.style.display = 'inline-block';
+                            charSpan.style.opacity = '1'; 
+                            charSpan.className = 'split-char';
+                            charSpan.innerText = char;
+                            wordSpan.appendChild(charSpan);
+                        });
+                        fragment.appendChild(wordSpan);
+                    }
+                });
+                return fragment;
+            } else if (node.nodeType === 1) {
+                if (node.tagName === 'BR') {
+                    return node.cloneNode();
+                }
+                const clone = node.cloneNode(false);
+                Array.from(node.childNodes).forEach(child => {
+                    clone.appendChild(processNode(child));
+                });
+                return clone;
+            }
+            return node.cloneNode();
+        }
+
+        elements.forEach(el => {
+            const newContent = document.createDocumentFragment();
+            Array.from(el.childNodes).forEach(child => {
+                newContent.appendChild(processNode(child));
             });
+            el.innerHTML = '';
+            el.appendChild(newContent);
         });
     }
     
